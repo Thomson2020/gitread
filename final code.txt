@@ -1,0 +1,27 @@
+import csv
+from datetime import datetime
+import time
+import sys
+import math
+
+print("program began at "+ datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+print()
+with open('appb-list.csv',newline='') as csvfile:
+    spamreader =csv.reader(csvfile, delimiter=',' ,quotechar='|')
+    count = 0
+    for row in spamreader:
+        if(row[3]=="CA")and (row[1]==row[5]) and not (row[0]=='#N/A'):
+              count = count + 1
+              print(row[3], count)
+              sys.stdout.flush()
+
+
+        if(row[3]=='US') and (row[0]==row[5]) and not (row[0]== '#N/A'):
+            count = count + 1
+            print(row[3], count)
+            sys.stdout.flush()
+
+
+
+
+
